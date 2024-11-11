@@ -3,8 +3,8 @@ import {
 	createUserWithEmailAndPassword,
 	onAuthStateChanged,
 } from "firebase/auth";
-import { auth } from "../services/database/firebase";
-//  
+import { auth , db } from "../services/database/firebase";
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
 // import { set } from "firebase/database";
 
@@ -17,7 +17,8 @@ export async function loginUsuario(email, password) {
 	);
 	if (usuario) {
 		try {
-			const token = usuario.accessToken;
+			 
+			//const token = usuario.accessToken;
 			//console.log(token)
 			return ( usuario )
 		} catch (error) {

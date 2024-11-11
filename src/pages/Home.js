@@ -9,12 +9,15 @@ import {
   TextInput,
 } from "react-native";
 import AuthContext from '../contexts/auth'
+import PersonContext from "../contexts/person";
 
-const icon = require("../../assets/icon.png");
+const icon = require("../../assets/favicon.png");
 
 const Home = ({ navigation }) => {
   const { user, LogoutUser } = useContext(AuthContext);
-  console.log("home: ", user);
+  const { person } = useContext(PersonContext);
+  
+  // console.log( person );
 
   async function handleOnClickSair() {
     // console.log("saindo: ", user);

@@ -10,7 +10,6 @@ import {
 import { getAllUser, newUserFatec } from "../services/realtime-database";
 import { useContext, useState } from "react";
 import AuthContext from "../contexts/auth";
-import { newPerson } from "../services/personService";
 
 const icon = require("../../assets/logosi.png");
 
@@ -28,8 +27,7 @@ const Login = ({ navigation }) => {
   };
 
   const onClickEntrar = async () => {
-    const response = newPerson("Jeferson","teste@gmail.com", "123456789", 16999999999)
-    console.log(response);
+    const userLogin = await LoginUser(email, password);    
   };
 
   const OnClickRegistrar = () => {
@@ -40,7 +38,7 @@ const Login = ({ navigation }) => {
     <View style={styles.container}>
       <Image style={styles.image} source={icon} />
       <View style={styles.body}>
-        <Text style={styles.title}>Login 21/10</Text>
+        <Text style={styles.title}>Fatec - Aula 21/10</Text>
         <View style={styles.areaInput}>
           <TextInput
             name="email"
@@ -60,8 +58,8 @@ const Login = ({ navigation }) => {
           <TouchableOpacity style={styles.button} onPress={onClickEntrar}>
             <Text style={(styles.buttonText, { color: "#fff" })}>Acessar</Text>
           </TouchableOpacity>
-
-          {/* <TouchableOpacity style={styles.button}
+{/* 
+          <TouchableOpacity style={styles.button}
              onPress={onNewUserFatec} >
             <Text style={(styles.buttonText, { color: "#fff" })}>
               teste
@@ -101,8 +99,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor:"#F0F8FF",
-    marginTop:30,
   },
 
   body: {
@@ -114,7 +110,7 @@ const styles = StyleSheet.create({
   image: {
     height: 230, 
     width: 230,  
-    borderRadius: 30, 
+    borderRadius: 75, 
     resizeMode: "cover", 
     marginTop: 15,
   },
@@ -129,9 +125,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     marginTop: 15,
-    color: "#FF0000",
-    fontWeight: "bold",
-    fontSize: 30,
+    color: "#000",
+    fontWeight: "300",
+    fontSize: 24,
   },
 
   textField: {
@@ -144,7 +140,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: "#006400",
+    backgroundColor: "blue",
     borderRadius: 16,
     width: "80%",
     height: 50,
